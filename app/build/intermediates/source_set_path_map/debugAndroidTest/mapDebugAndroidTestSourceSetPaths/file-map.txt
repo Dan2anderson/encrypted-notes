@@ -1,0 +1,11 @@
+com.example.encryptednotes.test.app-core-1.5.0-0 C:\Users\Daniel\.gradle\caches\8.11\transforms\3a0e17145ae3d9900ab73113ab5ce565\transformed\core-1.5.0\res
+com.example.encryptednotes.test.app-sqlite-framework-2.4.0-1 C:\Users\Daniel\.gradle\caches\8.11\transforms\4f2425e721605ed0d5eb955078b641a5\transformed\sqlite-framework-2.4.0\res
+com.example.encryptednotes.test.app-sqlite-2.4.0-2 C:\Users\Daniel\.gradle\caches\8.11\transforms\70577dc23a58a53aa72f58dab6dfcf13\transformed\sqlite-2.4.0\res
+com.example.encryptednotes.test.app-room-runtime-2.6.1-3 C:\Users\Daniel\.gradle\caches\8.11\transforms\92fd3341c1c25ba75d303b307aa0fccf\transformed\room-runtime-2.6.1\res
+com.example.encryptednotes.test.app-core-runtime-2.2.0-4 C:\Users\Daniel\.gradle\caches\8.11\transforms\a4d1af7f0e261266036ea97e3c2aa201\transformed\core-runtime-2.2.0\res
+com.example.encryptednotes.test.app-annotation-experimental-1.3.0-5 C:\Users\Daniel\.gradle\caches\8.11\transforms\af4807f733add6054a1c6b531dbc13e8\transformed\annotation-experimental-1.3.0\res
+com.example.encryptednotes.test.app-room-testing-2.6.1-6 C:\Users\Daniel\.gradle\caches\8.11\transforms\d33b3cdf678ead0a2255e88675b468f4\transformed\room-testing-2.6.1\res
+com.example.encryptednotes.test.app-androidTest-7 C:\Users\Daniel\AndroidStudioProjects\EncryptedNotes\app\build\generated\res\resValues\androidTest\debug
+com.example.encryptednotes.test.app-mergeDebugAndroidTestResources-8 C:\Users\Daniel\AndroidStudioProjects\EncryptedNotes\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
+com.example.encryptednotes.test.app-mergeDebugAndroidTestResources-9 C:\Users\Daniel\AndroidStudioProjects\EncryptedNotes\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
+com.example.encryptednotes.test.app-debugAndroidTest-10 C:\Users\Daniel\AndroidStudioProjects\EncryptedNotes\app\build\intermediates\merged_res\debugAndroidTest\mergeDebugAndroidTestResources

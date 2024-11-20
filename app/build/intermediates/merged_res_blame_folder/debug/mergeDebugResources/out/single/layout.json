@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "com.example.encryptednotes.app-mergeDebugResources-51:/layout/import_json_dialog.xml",
+        "source": "com.example.encryptednotes.app-main-54:/layout/import_json_dialog.xml"
+    },
+    {
+        "merged": "com.example.encryptednotes.app-mergeDebugResources-51:/layout/layout_new_memo.xml",
+        "source": "com.example.encryptednotes.app-main-54:/layout/layout_new_memo.xml"
+    },
+    {
+        "merged": "com.example.encryptednotes.app-mergeDebugResources-51:/layout/layout_delete_memo.xml",
+        "source": "com.example.encryptednotes.app-main-54:/layout/layout_delete_memo.xml"
+    },
+    {
+        "merged": "com.example.encryptednotes.app-mergeDebugResources-51:/layout/layout_search_bar.xml",
+        "source": "com.example.encryptednotes.app-main-54:/layout/layout_search_bar.xml"
+    },
+    {
+        "merged": "com.example.encryptednotes.app-mergeDebugResources-51:/layout/content_main.xml",
+        "source": "com.example.encryptednotes.app-main-54:/layout/content_main.xml"
+    },
+    {
+        "merged": "com.example.encryptednotes.app-mergeDebugResources-51:/layout/layout_show_memo.xml",
+        "source": "com.example.encryptednotes.app-main-54:/layout/layout_show_memo.xml"
+    },
+    {
+        "merged": "com.example.encryptednotes.app-mergeDebugResources-51:/layout/layout_memo.xml",
+        "source": "com.example.encryptednotes.app-main-54:/layout/layout_memo.xml"
+    },
+    {
+        "merged": "com.example.encryptednotes.app-mergeDebugResources-51:/layout/fragment_first.xml",
+        "source": "com.example.encryptednotes.app-main-54:/layout/fragment_first.xml"
+    },
+    {
+        "merged": "com.example.encryptednotes.app-mergeDebugResources-51:/layout/activity_main.xml",
+        "source": "com.example.encryptednotes.app-main-54:/layout/activity_main.xml"
+    }
+]
