@@ -1,0 +1,23 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="Base.Theme.EncryptedNotes" parent="Theme.Material3.Dark.NoActionBar">
+
+        <item name="colorPrimary">@color/redDark</item>
+        <item name="colorPrimaryDark">@color/redLight</item>
+        <item name="colorSecondary">@color/redDark</item>
+        <item name="colorAccent">@color/tanDark</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:windowBackground">@color/tanlight</item>
+        <item name="android:statusBarColor">@color/redDark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <!-- FAB style -->
+        <item name="colorPrimaryContainer">@color/redDark</item>
+        <item name="colorOnPrimaryContainer">@color/tanlight</item>
+
+    </style>
+
+    <style name="Theme.EncryptedNotes" parent="Base.Theme.EncryptedNotes" />
+</resources>
