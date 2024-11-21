@@ -1,0 +1,8 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="memo_padding_side">16dp</dimen>
+    <dimen name="memo_padding_top">8dp</dimen>
+    <dimen name="memo_margin_horizontal">8dp</dimen>
+    <dimen name="memo_margin_vertical">12dp</dimen>
+    <dimen name="largeBottom">24dp</dimen>
+</resources>
