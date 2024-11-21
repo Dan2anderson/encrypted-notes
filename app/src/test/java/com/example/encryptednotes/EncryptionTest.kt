@@ -4,6 +4,7 @@ import com.example.encryptednotes.misc.Encryption
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
+
 class EncryptionTest {
 
     @Test

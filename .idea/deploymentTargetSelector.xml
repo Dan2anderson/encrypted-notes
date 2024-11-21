@@ -16,12 +16,6 @@
       <SelectionState runConfigName="insertMemo() (1)">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="addFromJson()">
-        <option name="selectionMode" value="DROPDOWN" />
-      </SelectionState>
-      <SelectionState runConfigName="filterMemos()">
-        <option name="selectionMode" value="DROPDOWN" />
-      </SelectionState>
       <SelectionState runConfigName="filterItems()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
