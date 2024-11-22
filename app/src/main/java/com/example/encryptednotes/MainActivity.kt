@@ -1,11 +1,13 @@
 package com.example.encryptednotes
 
+import android.content.Intent
 import android.hardware.biometrics.BiometricPrompt
 import android.os.Build
 import android.os.Bundle
 import android.os.CancellationSignal
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -14,12 +16,14 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.lifecycleScope
 import com.example.encryptednotes.databinding.ActivityMainBinding
 import com.example.encryptednotes.ui.DeleteDialog
 import com.example.encryptednotes.ui.ImportJsonDialog
 import com.example.encryptednotes.ui.NewMemoModalFragment
 import com.example.encryptednotes.viewmodel.MemoViewModel
 import com.example.encryptednotes.viewmodel.MemoViewModelFactory
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity(), NewMemoModalFragment.DataCallback, DeleteDialog.DeleteCallback, ImportJsonDialog.JsonCallback {
 
@@ -89,9 +93,19 @@ class MainActivity : AppCompatActivity(), NewMemoModalFragment.DataCallback, Del
 }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
     return when (item.itemId) {
-        R.id.action_settings -> {
+        R.id.import_notes -> {
             val dialogFragment = ImportJsonDialog()
             dialogFragment.show(supportFragmentManager, "importJsonDialog")
+            true
+        }
+        R.id.export_notes -> {
+            val sendIntent: Intent = Intent().apply {
+                action = Intent.ACTION_SEND
+                putExtra(Intent.EXTRA_TEXT, viewModel.getAllItemsJson())
+                type = "text/plain"
+            }
+            val shareIntent = Intent.createChooser(sendIntent, null)
+            startActivity(shareIntent)
             true
         }
         else -> super.onOptionsItemSelected(item)
@@ -113,6 +127,12 @@ class MainActivity : AppCompatActivity(), NewMemoModalFragment.DataCallback, Del
     }
 
     override fun import(json: String) {
-        viewModel.addFromJson(json)
+        val deferred = viewModel.addFromJson(json)
+        lifecycleScope.launch {
+            val success = deferred.await()
+            if(!success){
+                Toast.makeText(baseContext, getText(R.string.not_formatted), Toast.LENGTH_LONG).show()
+            }
+        }
     }
 }

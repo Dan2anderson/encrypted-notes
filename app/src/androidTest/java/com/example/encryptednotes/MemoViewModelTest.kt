@@ -61,13 +61,23 @@ class MemoViewModelTest {
     @Test
     fun addFromJson() = runBlocking {
         val sizeBeforeDeletion = spyRepository.allMemos.value?.size
-        viewModel.addFromJson(testImportstring).join()
+        val success = viewModel.addFromJson(testImportstring).await()
         val sizeAfterDeletion = spyRepository.allMemos.value?.size
         val addedItem1 = spyRepository.allMemos.value?.get(sizeAfterDeletion?.minus(1) ?: 0)
         val addedItem2 = spyRepository.allMemos.value?.get(sizeAfterDeletion?.minus(2) ?: 0)
         assertEquals(sizeBeforeDeletion?.plus(2), sizeAfterDeletion)
         assertEquals(addedItem2?.title, "bank")
         assertEquals(addedItem1?.title, "Mobile phone")
+        assert(success)
+    }
+
+    @Test
+    fun addFromJsonEmptyString() = runBlocking {
+        val sizeBeforeDeletion = spyRepository.allMemos.value?.size
+        val sucess = viewModel.addFromJson("").await()
+        val sizeAfterDeletion = spyRepository.allMemos.value?.size
+        assertEquals(sizeBeforeDeletion, sizeAfterDeletion)
+        assert(!sucess)
     }
 
 
@@ -85,6 +95,33 @@ class MemoViewModelTest {
             viewModel.filterItems("")
             val filteredItems2 = viewModel.items.value
             assertEquals(8, filteredItems2?.size)
+        } finally {
+            viewModel.items.removeObserver(observer)
+        }
+    }
+
+    @Test
+    fun getAllItemsJson() = runTest {
+        val observer = Observer<List<MemoModel>> {}
+        try {
+            viewModel.items.observeForever(observer)
+
+            val text = viewModel.getAllItemsJson()
+            assert(text.contains("Amazon"))
+            assert(text.contains("Gmail"))
+            assert(text.contains("Netflix"))
+            assert(text.contains("Bank"))
+            assert(text.contains("Title 1"))
+            assert(text.contains("Title 2"))
+            assert(text.contains("Title 3"))
+            assert(text.contains("Title 4"))
+            assert(text.contains("Subtitle 1"))
+            assert(text.contains("Subtitle 1"))
+            assert(text.contains("Subtitle 1"))
+            assert(text.contains("Subtitle 1"))
+            assert(text.contains("user name 4"))
+            assert(text.contains("info"))
+            assert(text.contains("info2"))
         } finally {
             viewModel.items.removeObserver(observer)
         }

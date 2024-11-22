@@ -20,6 +20,13 @@
         <!-- Disable default action bar -->
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+
+        <item name="actionOverflowMenuStyle">@style/CustomOverflowMenuStyle</item>
+        <item name="popupMenuBackground">@style/CustomOverflowMenuStyle</item>
+    </style>
+
+    <style name="CustomOverflowMenuStyle" parent="Widget.AppCompat.PopupMenu.Overflow">
+        <item name="android:popupBackground">@color/tanDark</item>
     </style>
 
     <style name="Theme.EncryptedNotes" parent="Base.Theme.EncryptedNotes" />

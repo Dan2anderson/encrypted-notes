@@ -4,9 +4,18 @@
     android:background="@color/tanlight"
     tools:context="com.example.encryptednotes.MainActivity">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/import_notes"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="@string/import_notes"
+        app:showAsAction="never"
+        android:background="@color/tanlight"
+        android:itemBackground="@color/tanlight"
+        android:panelFullBackground="@color/tanlight"
+        android:theme="@style/CustomMenuItemStyle"
+        /> <item
+        android:id="@+id/export_notes"
+        android:orderInCategory="100"
+        android:title="@string/export_notes"
         app:showAsAction="never"
         android:background="@color/tanlight"
         android:itemBackground="@color/tanlight"

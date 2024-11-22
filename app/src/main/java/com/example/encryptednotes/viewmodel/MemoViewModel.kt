@@ -8,8 +8,11 @@ import androidx.lifecycle.viewModelScope
 import com.example.encryptednotes.data.MemoRepository
 import com.example.encryptednotes.data.MemoModel
 import com.example.encryptednotes.misc.Encryption
+import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
+import org.json.JSONArray
 import org.json.JSONObject
 
 class MemoViewModel(private val repository: MemoRepository, private val encryption: Encryption) :
@@ -62,24 +65,48 @@ class MemoViewModel(private val repository: MemoRepository, private val encrypti
         itemFilter.postValue(query)
     }
 
-    fun addFromJson(json: String): Job {
-        return viewModelScope.launch {
-            val memoList = parseJson(json)
-            repository.insertAll(memoList)
+    fun getAllItemsJson(): String {
+        val jsonArray = JSONArray()
+        allMemos.value?.let {
+            for (item in it) {
+                val jsonObject = JSONObject()
+                jsonObject.put("title", item.title)
+                jsonObject.put("subTitle", item.subTitle)
+                jsonObject.put("memo", encryption.decrypt(item.memo))
+                jsonArray.put(jsonObject)
+            }
+        }
+        return jsonArray.toString()
+    }
+
+    fun addFromJson(json: String): Deferred<Boolean> {
+        return viewModelScope.async {
+            try {
+                val memoList = parseJson(json)
+                repository.insertAll(memoList)
+                return@async memoList.isNotEmpty()
+            } catch (e: Exception) {
+                e.printStackTrace()
+                return@async false
+            }
         }
     }
 
     private fun parseJson(json: String): List<MemoModel> {
-        val jsonObject = JSONObject(json)
-        val memoList = mutableListOf<MemoModel>()
-        val memos = jsonObject.getJSONArray("accounts")
-        for (i in 0 until memos.length()) {
-            val memo = memos.getJSONObject(i)
-            val title = memo.getString("title")
-            val subTitle = memo.optString("subTitle", "")
-            val memoText = memo.getString("memo")
-            memoList.add(MemoModel(0, title, subTitle, encryption.encrypt(memoText)))
+        try {
+            val jsonObject = JSONObject(json)
+            val memoList = mutableListOf<MemoModel>()
+            val memos = jsonObject.getJSONArray("accounts")
+            for (i in 0 until memos.length()) {
+                val memo = memos.getJSONObject(i)
+                val title = memo.getString("title")
+                val subTitle = memo.optString("subTitle", "")
+                val memoText = memo.getString("memo")
+                memoList.add(MemoModel(0, title, subTitle, encryption.encrypt(memoText)))
+            }
+            return memoList
+        } catch (e: Exception) {
+            return emptyList()
         }
-        return memoList
     }
 }
