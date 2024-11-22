@@ -4,7 +4,7 @@
             "outputFile": "com.example.encryptednotes.app-mergeDebugResources-50:/values-v24/values-v24.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Daniel\\.gradle\\caches\\8.11\\transforms\\6334a267254b6596aa206e10e05f1915\\transformed\\material-1.10.0\\res\\values-v24\\values-v24.xml",
+                    "source": "C:\\Users\\Daniel\\.gradle\\caches\\8.11\\transforms\\cb25b8e6ac30141a4b1f5138d37ce1c5\\transformed\\material-1.10.0\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,9,12,15",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Daniel\\.gradle\\caches\\8.11\\transforms\\ccf67f6f72ef3e1a61baa5c585a70013\\transformed\\appcompat-1.6.1\\res\\values-v24\\values-v24.xml",
+                    "source": "C:\\Users\\Daniel\\.gradle\\caches\\8.11\\transforms\\3e2658276f3df9f78d96bd1007c7ae72\\transformed\\appcompat-1.6.1\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",

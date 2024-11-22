@@ -24,6 +24,17 @@
     <application
         android:debuggable="true"
         android:extractNativeLibs="false" >
+        <activity
+            android:name="androidx.fragment.app.testing.EmptyFragmentActivity"
+            android:exported="true"
+            android:multiprocess="true"
+            android:taskAffinity=""
+            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
         <uses-library android:name="android.test.runner" />
 
         <activity

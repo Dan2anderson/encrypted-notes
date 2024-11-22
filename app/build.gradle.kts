@@ -41,7 +41,7 @@ android {
     }
     testOptions {
         // Used for Unit testing Android dependent elements in /test folder
-        unitTests.isIncludeAndroidResources  = true
+        unitTests.isIncludeAndroidResources = true
         unitTests.isReturnDefaultValues = true
     }
 }
@@ -74,10 +74,6 @@ dependencies {
     // See Add the KSP plugin to your project
     ksp(libs.androidx.room.compiler)
 
-//    // If this project only uses Java source, use the Java annotationProcessor
-//    // No additional plugins are necessary
-//    annotationProcessor(libs.androidx.room.compiler)
-
 //    // optional - Kotlin Extensions and Coroutines support for Room
     implementation(libs.androidx.room.ktx)
 
@@ -85,31 +81,11 @@ dependencies {
 //
 //    // optional - Test helpers
     testImplementation(libs.room.testing)
-    testImplementation(libs.mockito.core)
     testImplementation(libs.androidx.core.testing)
-    testImplementation(libs.robolectric)
-    testImplementation(libs.mockito.inline)
-    testImplementation(libs.mockito.android)
     testImplementation(libs.kotlinx.coroutines.test)
 
     androidTestImplementation(libs.room.testing)
-//    androidTestImplementation(libs.mockito.core)
     androidTestImplementation(libs.androidx.core.testing)
-    androidTestImplementation(libs.robolectric)
     androidTestImplementation(libs.kotlinx.coroutines.test)
     androidTestImplementation(libs.mockito.mockito.android)
-
-
-//    androidTestImplementation(libs.mockito.inline)
-//    androidTestImplementation(libs.mockito.android)
-//    androidTestImplementation(libs.dexmaker.mockito.inline)
-//
-//    // optional - Paging 3 Integration
-//    implementation(libs.room.paging)
-
-//    implementation("androidx.room:room-runtime:2.5.0")
-//    kapt("androidx.room:room-compiler:2.5.0")
-    //annotationProcessor("android.arch.persistence.room:compiler:1.0.0"
-// To use Kotlin Symbol Processing (KSP) ***Keep commented until build passes
-// ksp("androidx.room:room-compiler:$room_version")
 }

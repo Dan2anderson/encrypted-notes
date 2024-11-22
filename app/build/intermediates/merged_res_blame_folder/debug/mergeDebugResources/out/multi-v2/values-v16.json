@@ -4,17 +4,7 @@
             "outputFile": "com.example.encryptednotes.app-mergeDebugResources-50:/values-v16/values-v16.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Daniel\\.gradle\\caches\\8.11\\transforms\\90008f7762ffa62448852a8a1966cf0d\\transformed\\core-1.10.1\\res\\values-v16\\values-v16.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "65",
-                        "endOffsets": "116"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Daniel\\.gradle\\caches\\8.11\\transforms\\ccf67f6f72ef3e1a61baa5c585a70013\\transformed\\appcompat-1.6.1\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\Daniel\\.gradle\\caches\\8.11\\transforms\\3e2658276f3df9f78d96bd1007c7ae72\\transformed\\appcompat-1.6.1\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -30,6 +20,16 @@
                         "endLines": "6",
                         "endColumns": "12",
                         "endOffsets": "289"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Daniel\\.gradle\\caches\\8.11\\transforms\\8d2ebfd608e8ee6c090f707c4d64d9d2\\transformed\\core-1.10.1\\res\\values-v16\\values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "65",
+                        "endOffsets": "116"
                     }
                 }
             ]

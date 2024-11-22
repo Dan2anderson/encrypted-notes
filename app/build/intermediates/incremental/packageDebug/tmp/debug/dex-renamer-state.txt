@@ -1,4 +1,4 @@
-#Thu Nov 21 11:54:43 EST 2024
+#Thu Nov 21 16:42:26 EST 2024
 base.0=C\:\\Users\\Daniel\\AndroidStudioProjects\\EncryptedNotes\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=C\:\\Users\\Daniel\\AndroidStudioProjects\\EncryptedNotes\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
 base.2=C\:\\Users\\Daniel\\AndroidStudioProjects\\EncryptedNotes\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\14\\classes.dex

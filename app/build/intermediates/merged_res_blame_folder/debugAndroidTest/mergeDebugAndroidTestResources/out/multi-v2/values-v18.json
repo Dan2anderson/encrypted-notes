@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.encryptednotes.test.app-mergeDebugAndroidTestResources-8:/values-v18/values-v18.xml",
+            "outputFile": "com.example.encryptednotes.test.app-mergeDebugAndroidTestResources-28:/values-v18/values-v18.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Daniel\\.gradle\\caches\\8.11\\transforms\\3a0e17145ae3d9900ab73113ab5ce565\\transformed\\core-1.5.0\\res\\values-v18\\values.xml",
+                    "source": "C:\\Users\\Daniel\\.gradle\\caches\\8.11\\transforms\\b3da52829a218899cfb23c59086303a8\\transformed\\core-1.5.0\\res\\values-v18\\values.xml",
                     "from": {
                         "startLines": "4,12",
                         "startColumns": "0,0",

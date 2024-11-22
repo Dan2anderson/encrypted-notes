@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.annotation.VisibleForTesting
 import androidx.recyclerview.widget.RecyclerView
 import com.example.encryptednotes.R
 import com.example.encryptednotes.data.MemoModel
@@ -13,6 +14,11 @@ class MemoAdapter(private val itemList: MutableList<MemoModel>, private val item
     interface OnItemClickListener {
         fun onItemClick(item: MemoModel)
         fun onLongClick(item: MemoModel)
+    }
+
+    @VisibleForTesting
+    fun getItemList(): List<MemoModel> {
+        return itemList
     }
 
     fun updateList(filteredList: List<MemoModel>){

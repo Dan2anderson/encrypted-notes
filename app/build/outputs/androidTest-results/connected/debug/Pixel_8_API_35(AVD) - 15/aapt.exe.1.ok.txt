@@ -1,7 +1,7 @@
 EXECUTING: C:\Users\Daniel\AppData\Local\Android\sdk\build-tools\34.0.0\aapt.exe dump badging C:\Users\Daniel\AndroidStudioProjects\EncryptedNotes\app\build\intermediates\apk\debug\app-debug.apk
 CURRENT_WORKING_DIRECTORY: C:\Users\Daniel\AndroidStudioProjects\EncryptedNotes
-START_TIME: 2024-11-20 16:45:27.478
-START_TIME-NANOS: 2024-11-20 16:45:27.478915500
+START_TIME: 2024-11-21 18:50:44.638
+START_TIME-NANOS: 2024-11-21 18:50:44.638777200
 ENVIRONMENT:
 
 *****************************************
@@ -123,7 +123,7 @@ supports-any-density: 'true'
 locales: '--_--' 'af' 'am' 'ar' 'as' 'az' 'be' 'bg' 'bn' 'bs' 'ca' 'cs' 'da' 'de' 'el' 'en-AU' 'en-CA' 'en-GB' 'en-IN' 'en-XC' 'es' 'es-419' 'es-US' 'et' 'eu' 'fa' 'fi' 'fr' 'fr-CA' 'gl' 'gu' 'hi' 'hr' 'hu' 'hy' 'in' 'is' 'it' 'iw' 'ja' 'ka' 'kk' 'km' 'kn' 'ko' 'ky' 'lo' 'lt' 'lv' 'mk' 'ml' 'mn' 'mr' 'ms' 'my' 'nb' 'ne' 'nl' 'or' 'pa' 'pl' 'pt' 'pt-BR' 'pt-PT' 'ro' 'ru' 'si' 'sk' 'sl' 'sq' 'sr' 'sr-Latn' 'sv' 'sw' 'ta' 'te' 'th' 'tl' 'tr' 'uk' 'ur' 'uz' 'vi' 'zh-CN' 'zh-HK' 'zh-TW' 'zu'
 densities: '120' '160' '240' '320' '480' '640' '65534'
 ===================
-END_TIME: 2024-11-20 16:45:27.707
-END_TIME-NANOS: 2024-11-20 16:45:27.707495900
-DURATION: 228ms
+END_TIME: 2024-11-21 18:50:44.694
+END_TIME-NANOS: 2024-11-21 18:50:44.694778100
+DURATION: 56ms
 EXIT CODE: 0

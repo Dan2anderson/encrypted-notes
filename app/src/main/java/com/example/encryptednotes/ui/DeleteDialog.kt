@@ -47,7 +47,6 @@ class DeleteDialog: DialogFragment() {
         cancelButton.setOnClickListener {
             dismiss()
         }
-
     }
 
     override fun onStart() {

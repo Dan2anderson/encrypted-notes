@@ -18,11 +18,13 @@ class MemoViewModel(private val repository: MemoRepository, private val encrypti
     private val itemFilter = MutableLiveData<String>()
     private val allMemos = repository.allMemos
     private val _items = MediatorLiveData<List<MemoModel>>()
-    val items: LiveData<List<MemoModel>> get() = _items
+    val items: LiveData<List<MemoModel>> = _items
 
     init {
-        _items.addSource(allMemos) { filterMemos() }
-        _items.addSource(itemFilter) { filterMemos() }
+        _items.addSource(allMemos) {
+            filterMemos() }
+        _items.addSource(itemFilter) {
+            filterMemos() }
     }
 
     private fun filterMemos() {
