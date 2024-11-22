@@ -6,6 +6,7 @@
     <string name="first_fragment_label">Encrypted Notes</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="not_formatted">Import text was not formatted correctly.</string>
+    <string name="auth_failed">Authentication Failed</string>
     <string name="example_import_text">Example upload text. (omit this line)\n{\n&#160;"accounts":[\n&#160;&#160;{\n&#160;&#160;&#160;"title":"bank",\n&#160;&#160;&#160;"memo":"firstpassword!"\n&#160;&#160;},\n&#160;&#160;{\n&#160;&#160;&#160;"title":"Netflix",\n&#160;&#160;&#160;"subTitle":"email@gmail.com",\n&#160;&#160;&#160;"memo":"somepassword"\n&#160;&#160;}\n&#160;]\n}</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>

@@ -72,15 +72,18 @@ class MainActivity : AppCompatActivity(), NewMemoModalFragment.DataCallback, Del
                     }
                     override fun onAuthenticationFailed() {
                         super.onAuthenticationFailed()
+                        showToast(getString(R.string.auth_failed))
                         finishAffinity()
                     }
 
                     override fun onAuthenticationError(errorCode: Int, errString: CharSequence?) {
                         super.onAuthenticationError(errorCode, errString)
+                        showToast(getString(R.string.auth_failed))
                         finishAffinity()
                     }
                     override fun onAuthenticationHelp(helpCode: Int, helpString: CharSequence?) {
                         super.onAuthenticationHelp(helpCode, helpString)
+                        showToast(getString(R.string.auth_failed))
                         finishAffinity()
                     }
                 })
@@ -131,8 +134,12 @@ class MainActivity : AppCompatActivity(), NewMemoModalFragment.DataCallback, Del
         lifecycleScope.launch {
             val success = deferred.await()
             if(!success){
-                Toast.makeText(baseContext, getText(R.string.not_formatted), Toast.LENGTH_LONG).show()
+                showToast(getString(R.string.not_formatted))
             }
         }
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 }
