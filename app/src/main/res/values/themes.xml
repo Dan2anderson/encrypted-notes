@@ -1,7 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
-    <style name="Base.Theme.EncryptedNotes" parent="Theme.Material3.Dark.NoActionBar">
+    <style name="Base.Theme.EncryptedNotes" parent="Theme.Material3.Dark">
 
         <item name="colorPrimary">@color/redDark</item>
         <item name="colorPrimaryDark">@color/redLight</item>
@@ -17,6 +17,9 @@
         <item name="colorPrimaryContainer">@color/redDark</item>
         <item name="colorOnPrimaryContainer">@color/tanlight</item>
 
+        <!-- Disable default action bar -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
     <style name="Theme.EncryptedNotes" parent="Base.Theme.EncryptedNotes" />
