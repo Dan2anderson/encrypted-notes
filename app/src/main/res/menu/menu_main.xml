@@ -2,7 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/tanlight"
-    tools:context="com.example.encryptednotes.MainActivity">
+    tools:context="com.bedrock.encryptednotes.MainActivity">
     <item
         android:id="@+id/import_notes"
         android:orderInCategory="100"

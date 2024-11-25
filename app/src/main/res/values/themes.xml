@@ -21,6 +21,10 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
 
+
+        <item name="android:dialogCornerRadius" tools:ignore="NewApi">18dp</item>
+        <item name="dialogCornerRadius">18dp</item>
+
         <item name="actionOverflowMenuStyle">@style/CustomOverflowMenuStyle</item>
         <item name="popupMenuBackground">@style/CustomOverflowMenuStyle</item>
     </style>

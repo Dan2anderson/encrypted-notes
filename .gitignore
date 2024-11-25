@@ -5,6 +5,8 @@
 .idea
 /.gradle
 .gradle
+.kotlin
+/.kotlin
 /.idea/assetWizardSettings.xml
 .DS_Store
 /build

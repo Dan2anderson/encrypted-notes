@@ -3,19 +3,20 @@ import com.android.utils.TraceUtils.simpleId
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.compose.compiler)
     id("com.google.devtools.ksp")
 }
 
 android {
-    namespace = "com.example.encryptednotes"
+    namespace = "com.bedrock.encryptednotes"
     compileSdk = 34
 
     defaultConfig {
-        applicationId ="com.example.encryptednotes"
+        applicationId ="com.bedrock.encryptednotes"
         minSdk = 26
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "1.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -39,6 +40,10 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.7.5"
     }
     testOptions {
         // Used for Unit testing Android dependent elements in /test folder
@@ -50,12 +55,18 @@ android {
 
 dependencies {
 
+    implementation(libs.androidx.ui)
+    implementation(libs.androidx.compose.material.material2)
+    implementation(libs.androidx.ui.tooling.preview)
+    implementation(libs.androidx.activity.compose)
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.ui.android)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
