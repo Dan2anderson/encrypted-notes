@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_FirstFragment_to_tutorialFragment"
             app:destination="@id/tutorialFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_authFailedFragment"
+            app:destination="@id/authFailedFragment" />
     </fragment>
     <fragment
         android:id="@+id/tutorialFragment"
@@ -25,4 +28,8 @@
             android:id="@+id/action_tutorialFragment_to_FirstFragment2"
             app:destination="@id/FirstFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/authFailedFragment"
+        android:name="com.bedrock.encryptednotes.ui.AuthFailedFragment"
+        android:label="AuthFailedFragment" />
 </navigation>

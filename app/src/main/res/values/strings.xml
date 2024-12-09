@@ -4,7 +4,7 @@
     <string name="export_notes">Export</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">Encrypted Notes</string>
-    <string name="second_fragment_label">Second Fragment</string>
+    <string name="tutorial_fragment_title">Instructions</string>
     <string name="not_formatted">Import text was not formatted correctly.</string>
     <string name="auth_failed">Authentication Failed</string>
     <string name="example_import_text">Example upload text. (omit this line)\n{\n&#160;"accounts":[\n&#160;&#160;{\n&#160;&#160;&#160;"title":"bank",\n&#160;&#160;&#160;"memo":"firstpassword!"\n&#160;&#160;},\n&#160;&#160;{\n&#160;&#160;&#160;"title":"Netflix",\n&#160;&#160;&#160;"subTitle":"email@gmail.com",\n&#160;&#160;&#160;"memo":"somepassword"\n&#160;&#160;}\n&#160;]\n}</string>
@@ -18,6 +18,9 @@
     <string name="done">Done</string>
     <string name="delete">Delete</string>
     <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="auth_error">Authentication Failed</string>
+    <string name="auth_error_desc">Closing the app to secure your encrypted notes.</string>
     <string name="delete_confirmation">Are you sure you want to delete %1$s?</string>
     <string name="auth_title">To protect your notes authentication is required.</string>
     <string name="pin_sub">Please use biometrics or enter your device PIN.</string>

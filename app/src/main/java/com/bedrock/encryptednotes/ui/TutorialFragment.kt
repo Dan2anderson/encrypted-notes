@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import com.bedrock.encryptednotes.R
 import com.bedrock.encryptednotes.ui.composables.TutorialScreen
 
 class TutorialFragment : Fragment() {
@@ -15,6 +16,7 @@ class TutorialFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        activity?.title = getString(R.string.tutorial_fragment_title)
         return ComposeView(requireContext()).apply {
             setContent {
                 TutorialScreen{findNavController().navigateUp()}

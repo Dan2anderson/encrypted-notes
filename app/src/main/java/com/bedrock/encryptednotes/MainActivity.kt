@@ -25,6 +25,7 @@ import com.bedrock.encryptednotes.databinding.ActivityMainBinding
 import com.bedrock.encryptednotes.ui.DeleteDialog
 import com.bedrock.encryptednotes.ui.ImportJsonDialog
 import com.bedrock.encryptednotes.ui.NewMemoModalFragment
+import com.bedrock.encryptednotes.ui.showGenericDialog
 import com.bedrock.encryptednotes.viewmodel.MemoViewModel
 import com.bedrock.encryptednotes.viewmodel.MemoViewModelFactory
 import kotlinx.coroutines.launch
@@ -72,8 +73,9 @@ class MainActivity : AppCompatActivity(), NewMemoModalFragment.DataCallback,
 
     }
 
-    override fun onStart() {
-        super.onStart()
+
+    override fun onResume() {
+        super.onResume()
         if (MemoSharedPrefs.getIsFirstStart(this)) {
             val navController = findNavController(R.id.nav_host_fragment_content_main)
             MemoSharedPrefs.saveIsFirstStart(this, false)
@@ -115,7 +117,7 @@ class MainActivity : AppCompatActivity(), NewMemoModalFragment.DataCallback,
                                 override fun onAuthenticationFailed() {
                                     super.onAuthenticationFailed()
                                     showToast(getString(R.string.auth_failed))
-                                    finishAffinity()
+                                    findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.action_FirstFragment_to_authFailedFragment)
                                 }
 
                                 override fun onAuthenticationError(
@@ -124,7 +126,8 @@ class MainActivity : AppCompatActivity(), NewMemoModalFragment.DataCallback,
                                 ) {
                                     super.onAuthenticationError(errorCode, errString)
                                     showToast(getString(R.string.auth_failed))
-                                    finishAffinity()
+                                    findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.action_FirstFragment_to_authFailedFragment)
+
                                 }
 
                                 override fun onAuthenticationHelp(
@@ -133,17 +136,15 @@ class MainActivity : AppCompatActivity(), NewMemoModalFragment.DataCallback,
                                 ) {
                                     super.onAuthenticationHelp(helpCode, helpString)
                                     showToast(getString(R.string.auth_failed))
-                                    finishAffinity()
+                                    findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.action_FirstFragment_to_authFailedFragment)
+
                                 }
                             })
                 }
-
-                BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE,
-                BiometricManager.BIOMETRIC_ERROR_SECURITY_UPDATE_REQUIRED,
-                BiometricManager.BIOMETRIC_ERROR_HW_UNAVAILABLE,
-                BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED -> {
-                    checkPin()
-                }
+                BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE -> checkPin()
+                BiometricManager.BIOMETRIC_ERROR_SECURITY_UPDATE_REQUIRED -> checkPin()
+                BiometricManager.BIOMETRIC_ERROR_HW_UNAVAILABLE -> checkPin()
+                BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED -> checkPin()
             }
         } else {
             checkPin()
@@ -212,6 +213,11 @@ class MainActivity : AppCompatActivity(), NewMemoModalFragment.DataCallback,
             getString(R.string.auth_title),
             getString(R.string.pin_sub)
         )
-        deviceCredentialLauncher.launch(intent)
+        if(intent == null) {
+            findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.action_FirstFragment_to_authFailedFragment)
+        } else {
+            deviceCredentialLauncher.launch(intent)
+        }
     }
+
 }
