@@ -5,9 +5,9 @@ import com.bedrock.encryptednotes.data.MemoRepository
 import com.bedrock.encryptednotes.misc.Encryption
 
 //class MemoViewModelFactory(private val memoDao: MemoDao) : ViewModelProvider.Factory {
-class MemoViewModelFactory(private val repository: MemoRepository) : ViewModelProvider.Factory {
+class MemoViewModelFactory(private val repository: MemoRepository, private val key: String) : ViewModelProvider.Factory {
 //    val memoDao = MemoDatabase.getDatabase(context).memoDao()
-private val encryption: Encryption = Encryption()
+private val encryption: Encryption = Encryption(key)
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(MemoViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")

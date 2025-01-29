@@ -18,6 +18,7 @@ import com.bedrock.encryptednotes.data.MemoModel
 import com.bedrock.encryptednotes.viewmodel.MemoViewModel
 import com.bedrock.encryptednotes.viewmodel.MemoViewModelFactory
 import com.bedrock.encryptednotes.R
+import com.bedrock.encryptednotes.data.MemoSharedPrefs
 import com.bedrock.encryptednotes.databinding.FragmentMemoListBinding
 
 /**
@@ -31,7 +32,7 @@ class MemoListFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
     private val viewModel: MemoViewModel by viewModels {
-        MemoViewModelFactory((activity?.application as MemoApplication).repository)
+        MemoViewModelFactory((activity?.application as MemoApplication).repository, MemoSharedPrefs.getKey(requireContext()))
     }
 
 

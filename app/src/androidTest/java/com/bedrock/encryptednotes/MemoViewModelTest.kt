@@ -1,5 +1,6 @@
 package com.bedrock.encryptednotes
 
+import android.content.Context
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -19,6 +20,7 @@ import org.junit.runner.RunWith
 
 import org.junit.Assert.*
 import org.junit.Rule
+import org.mockito.Mockito.mock
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -31,8 +33,10 @@ class MemoViewModelTest {
     @Rule
     val rule = InstantTaskExecutorRule()
 
+    private val contextMock = mock(Context::class.java)
+    private val mockKey = "mockKey"
     private val spyRepository = MockRepository(MockMemoDao())
-    private val viewModel = MemoViewModel(spyRepository, Encryption())
+    private val viewModel = MemoViewModel(spyRepository, Encryption("sharedPrefskeyMock"))
 
     @Test
     fun useAppContext() {
@@ -170,6 +174,7 @@ class MockMemoDao : MemoDao {
         return liveData
     }
 }
+
 
 val testImportstring =
     "{\"accounts\":[{\"title\": \"bank\",\"subTitle\": \"username\",\"memo\": \"firstpassword!\"},{\"title\": \"Mobile phone\",\"subTitle\": \"email@gmail.com\",\"memo\": \"somepassword\"}]}"

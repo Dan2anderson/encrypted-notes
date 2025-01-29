@@ -3,44 +3,17 @@ package com.bedrock.encryptednotes.misc
 import android.security.keystore.KeyGenParameterSpec
 import android.security.keystore.KeyProperties
 import java.security.KeyStore
+import java.security.SecureRandom
+import java.util.Base64
+import javax.crypto.Cipher
 import javax.crypto.KeyGenerator
 import javax.crypto.SecretKey
+import javax.crypto.spec.GCMParameterSpec
 
-open class Encryption {
-
-
-    private val keyAlias = "encryptionKeyAlias"
-
-
-    open fun getKeyFromKeystore(): String {
-        val keyStore = KeyStore.getInstance("AndroidKeyStore").apply {
-            load(null)
-        }
-
-        return if (keyStore.containsAlias(keyAlias)) {
-            val secretKeyEntry = keyStore.getEntry(keyAlias, null) as KeyStore.SecretKeyEntry
-            secretKeyEntry.secretKey.toString()
-        } else {
-            createKey().toString()
-        }
-    }
-
-    fun createKey(): SecretKey {
-        val keyGenerator = KeyGenerator.getInstance(KeyProperties.KEY_ALGORITHM_AES, "AndroidKeyStore")
-        val keyGenParameterSpec = KeyGenParameterSpec.Builder(
-            keyAlias,
-            KeyProperties.PURPOSE_ENCRYPT or KeyProperties.PURPOSE_DECRYPT
-        ).setBlockModes(KeyProperties.BLOCK_MODE_GCM)
-            .setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_NONE)
-            .setKeySize(256)
-            .build()
-
-        keyGenerator.init(keyGenParameterSpec)
-        return keyGenerator.generateKey()
-    }
+open class Encryption(val key: String) {
 
     fun encrypt(textToEncrypt: String): String {
-        val key = getKeyFromKeystore()
+        val key = key
         val keyLength = key.length
         val encryptedChars = textToEncrypt.mapIndexed { index, char ->
             char.code xor key[index % keyLength].code
@@ -49,7 +22,7 @@ open class Encryption {
     }
 
     fun decrypt(text: String): String {
-        val key = getKeyFromKeystore()
+        val key = key
         val keyLength = key.length
         val decryptedChars = text.mapIndexed { index, char ->
             char.code xor key[index % keyLength].code

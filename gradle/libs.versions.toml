@@ -22,6 +22,7 @@ material = "1.10.0"
 constraintlayout = "2.1.4"
 mockitoAndroid = "4.0.0"
 mockitoCore = "5.3.1"
+mockitoCoreVersion = "4.0.0"
 mockkVersion = "4.0.0"
 navigationFragmentKtx = "2.6.0"
 navigationUiKtx = "2.6.0"
@@ -64,6 +65,7 @@ androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navi
 androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationUiKtx" }
 mockito-android = { module = "org.mockito:Mockito-android", version.ref = "mockitoAndroid" }
 mockito-core = { module = "org.mockito:mockito-core", version.ref = "mockitoCore" }
+mockito-core-v400 = { module = "org.mockito:mockito-core", version.ref = "mockitoCoreVersion" }
 mockito-inline = { module = "org.mockito:mockito-inline", version.ref = "mockitoAndroid" }
 mockito-mockito-android = { module = "org.mockito:mockito-android", version.ref = "mockitoAndroid" }
 mockk-mockk = { module = "io.mockk:mockk", version.ref = "mockkVersion" }

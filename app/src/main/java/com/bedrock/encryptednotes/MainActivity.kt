@@ -25,7 +25,6 @@ import com.bedrock.encryptednotes.databinding.ActivityMainBinding
 import com.bedrock.encryptednotes.ui.DeleteDialog
 import com.bedrock.encryptednotes.ui.ImportJsonDialog
 import com.bedrock.encryptednotes.ui.NewMemoModalFragment
-import com.bedrock.encryptednotes.ui.showGenericDialog
 import com.bedrock.encryptednotes.viewmodel.MemoViewModel
 import com.bedrock.encryptednotes.viewmodel.MemoViewModelFactory
 import kotlinx.coroutines.launch
@@ -36,7 +35,7 @@ class MainActivity : AppCompatActivity(), NewMemoModalFragment.DataCallback,
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
     private val viewModel: MemoViewModel by viewModels {
-        MemoViewModelFactory((application as MemoApplication).repository)
+        MemoViewModelFactory((application as MemoApplication).repository, MemoSharedPrefs.getKey(this))
     }
     private var isAuthenticated = false
 

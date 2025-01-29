@@ -1,5 +1,6 @@
 package com.bedrock.encryptednotes.viewmodel
 
+import android.content.Context
 import androidx.lifecycle.ViewModel
 import com.bedrock.encryptednotes.data.MemoRepository
 import org.junit.Before
@@ -14,7 +15,7 @@ class MemoViewModelFactoryTest {
     @Before
     fun setUp() {
         repository = mock(MemoRepository::class.java)
-        factory = MemoViewModelFactory(repository)
+        factory = MemoViewModelFactory(repository, "a;sgunwag")
     }
 
 
