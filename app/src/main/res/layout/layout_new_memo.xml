@@ -3,54 +3,69 @@
     android:id="@+id/newMemoLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="16dp"
+    android:layout_gravity="center"
     android:background="@drawable/modal_background"
-    android:layout_gravity="center">
+    android:orientation="vertical"
+    android:padding="16dp">
 
-    <EditText
-        android:id="@+id/editText1"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:autofillHints="none"
-        android:hint="@string/title"
-        android:paddingVertical="@dimen/memo_padding_side"
-        android:background="@drawable/custom_edit_text"
-        android:textColor="@color/black"
-        android:textColorHint="@android:color/darker_gray"
-        android:inputType="textMultiLine" />
+        android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/subtitle"
-        android:paddingVertical="@dimen/memo_padding_side"
-        android:background="@drawable/custom_edit_text"
-        android:layout_marginTop="8dp"
-        android:autofillHints="none"
-        android:textColor="@color/black"
-        android:textColorHint="@android:color/darker_gray"
-        android:inputType="textMultiLine" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/editText3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/memo"
-        android:paddingVertical="@dimen/memo_padding_side"
-        android:background="@drawable/custom_edit_text"
-        android:layout_marginTop="8dp"
-        android:autofillHints="none"
-        android:textColor="@color/black"
-        android:textColorHint="@android:color/darker_gray"
-        android:inputType="textMultiLine"/>
+            <EditText
+                android:id="@+id/editText1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="none"
+                android:background="@drawable/custom_edit_text"
+                android:hint="@string/title"
+                android:inputType="textMultiLine"
+                android:paddingVertical="@dimen/memo_padding_side"
+                android:textColor="@color/black"
+                android:textColorHint="@drawable/selector"
+                />
 
-    <Button
-        android:id="@+id/confirmButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/confirm"
+            <EditText
+                android:id="@+id/editText2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:autofillHints="none"
+                android:background="@drawable/custom_edit_text"
+                android:hint="@string/subtitle"
+                android:inputType="textMultiLine"
+                android:paddingVertical="@dimen/memo_padding_side"
+                android:textColor="@color/black"
+                android:textColorHint="@drawable/selector" />
 
-        android:layout_marginTop="16dp" />
+            <EditText
+                android:id="@+id/editText3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:autofillHints="none"
+                android:background="@drawable/custom_edit_text"
+                android:hint="@string/memo"
+                android:inputType="textMultiLine"
+                android:paddingVertical="@dimen/memo_padding_side"
+                android:textColor="@color/black"
+                android:textColorHint="@drawable/selector" />
+
+            <Button
+                android:id="@+id/confirmButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+
+                android:text="@string/confirm" />
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
 </LinearLayout>

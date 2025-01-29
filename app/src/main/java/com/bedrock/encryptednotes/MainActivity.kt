@@ -88,8 +88,8 @@ class MainActivity : AppCompatActivity(), NewMemoModalFragment.DataCallback,
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onPause() {
+        super.onPause()
         isAuthenticated = false
     }
 
@@ -214,7 +214,16 @@ class MainActivity : AppCompatActivity(), NewMemoModalFragment.DataCallback,
             getString(R.string.pin_sub)
         )
         if(intent == null) {
-            findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.action_FirstFragment_to_authFailedFragment)
+            findNavController(R.id.nav_host_fragment_content_main).currentDestination?.id?.let {
+                if (it == R.id.tutorialFragment) {
+                    findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.action_tutorialFragment_to_authFailedFragment)
+                } else if( it == R.id.authFailedFragment) {
+                    //no op
+                } else if(it == R.id.FirstFragment) {
+                    findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.action_tutorialFragment_to_authFailedFragment)
+                }
+            }
+            findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.action_tutorialFragment_to_authFailedFragment)
         } else {
             deviceCredentialLauncher.launch(intent)
         }

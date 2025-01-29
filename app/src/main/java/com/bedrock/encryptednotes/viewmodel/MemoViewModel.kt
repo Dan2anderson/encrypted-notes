@@ -43,13 +43,13 @@ class MemoViewModel(private val repository: MemoRepository, private val encrypti
 
     fun insertMemo(title: String, subTitle: String, memo: String): Job {
        return viewModelScope.launch {
-            val encryptedMemo = encryption.encrypt(memo)
+            val encryptedMemo = encryption.encodeText(memo)
             repository.insert(MemoModel(0, title, subTitle, encryptedMemo))
         }
     }
 
     fun getMemoPlainText(item: MemoModel): String {
-        return encryption.decrypt(item.memo)
+        return encryption.decodeText(item.memo)
     }
 
     fun deleteMemo(memoId: Int): Job {
@@ -72,7 +72,7 @@ class MemoViewModel(private val repository: MemoRepository, private val encrypti
                 val jsonObject = JSONObject()
                 jsonObject.put("title", item.title)
                 jsonObject.put("subTitle", item.subTitle)
-                jsonObject.put("memo", encryption.decrypt(item.memo))
+                jsonObject.put("memo", encryption.decodeText(item.memo))
                 jsonArray.put(jsonObject)
             }
         }
@@ -102,7 +102,7 @@ class MemoViewModel(private val repository: MemoRepository, private val encrypti
                 val title = memo.getString("title")
                 val subTitle = memo.optString("subTitle", "")
                 val memoText = memo.getString("memo")
-                memoList.add(MemoModel(0, title, subTitle, encryption.encrypt(memoText)))
+                memoList.add(MemoModel(0, title, subTitle, encryption.encodeText(memoText)))
             }
             return memoList
         } catch (e: Exception) {

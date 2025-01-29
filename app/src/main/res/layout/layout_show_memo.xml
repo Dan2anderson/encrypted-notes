@@ -9,16 +9,28 @@
     android:background="@drawable/modal_background"
     android:layout_gravity="center">
 
-   <TextView
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:id="@+id/memoText"
-       tools:text="Some large memo text to see what it looks like in the example that is shown on the layout screen."
-       />
-    <Button
-        android:id="@+id/doneButton"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/done"
-        android:layout_marginTop="16dp" />
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/memoText"
+                android:textIsSelectable="true"
+                android:textSize="20sp"
+                tools:text="Some large memo text to see what it looks like in the example that is shown on the layout screen."
+                />
+            <Button
+                android:id="@+id/doneButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/done"
+                android:layout_marginTop="30dp" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
 </LinearLayout>
