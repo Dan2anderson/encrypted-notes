@@ -116,7 +116,7 @@ class MainActivity : AppCompatActivity(), NewMemoModalFragment.DataCallback,
                                 override fun onAuthenticationFailed() {
                                     super.onAuthenticationFailed()
                                     showToast(getString(R.string.auth_failed))
-                                    findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.action_FirstFragment_to_authFailedFragment)
+                                    navigateAuthFailed()
                                 }
 
                                 override fun onAuthenticationError(
@@ -125,7 +125,7 @@ class MainActivity : AppCompatActivity(), NewMemoModalFragment.DataCallback,
                                 ) {
                                     super.onAuthenticationError(errorCode, errString)
                                     showToast(getString(R.string.auth_failed))
-                                    findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.action_FirstFragment_to_authFailedFragment)
+                                    navigateAuthFailed()
 
                                 }
 
@@ -135,7 +135,7 @@ class MainActivity : AppCompatActivity(), NewMemoModalFragment.DataCallback,
                                 ) {
                                     super.onAuthenticationHelp(helpCode, helpString)
                                     showToast(getString(R.string.auth_failed))
-                                    findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.action_FirstFragment_to_authFailedFragment)
+                                    navigateAuthFailed()
 
                                 }
                             })
@@ -144,7 +144,7 @@ class MainActivity : AppCompatActivity(), NewMemoModalFragment.DataCallback,
                 BiometricManager.BIOMETRIC_ERROR_SECURITY_UPDATE_REQUIRED -> checkPin()
                 BiometricManager.BIOMETRIC_ERROR_HW_UNAVAILABLE -> checkPin()
                 BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED -> checkPin()
-            }
+            } 
         } else {
             checkPin()
         }
@@ -213,18 +213,21 @@ class MainActivity : AppCompatActivity(), NewMemoModalFragment.DataCallback,
             getString(R.string.pin_sub)
         )
         if(intent == null) {
-            findNavController(R.id.nav_host_fragment_content_main).currentDestination?.id?.let {
-                if (it == R.id.tutorialFragment) {
-                    findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.action_tutorialFragment_to_authFailedFragment)
-                } else if( it == R.id.authFailedFragment) {
-                    //no op
-                } else if(it == R.id.FirstFragment) {
-                    findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.action_tutorialFragment_to_authFailedFragment)
-                }
-            }
-            findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.action_tutorialFragment_to_authFailedFragment)
+            navigateAuthFailed()
         } else {
             deviceCredentialLauncher.launch(intent)
+        }
+    }
+    
+    private fun navigateAuthFailed() {
+        findNavController(R.id.nav_host_fragment_content_main).currentDestination?.id?.let {
+            if (it == R.id.tutorialFragment) {
+                findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.action_tutorialFragment_to_authFailedFragment)
+            } else if( it == R.id.authFailedFragment) {
+                //no op
+            } else if(it == R.id.FirstFragment) {
+                findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.action_FirstFragment_to_authFailedFragment)
+            }
         }
     }
 
